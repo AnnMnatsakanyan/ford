@@ -64,10 +64,6 @@ body button {
   font-size: 16px;
 }
 
-header {
-  overflow: hidden;
-}
-
 ul {
   list-style-type: none;
 }
@@ -107,6 +103,10 @@ p {
 img {
   width: 100%;
   display: block;
+}
+
+button {
+  cursor: pointer;
 }
 
 .small_txt {
@@ -169,7 +169,6 @@ nav a {
 
 .nav_button,
 .nav_item {
-  min-height: 50px;
   padding-inline: 8px;
 }
 
@@ -189,6 +188,10 @@ nav button:hover {
   color: var(--hover-color);
 }
 
+.selected_link {
+  border-bottom: 2px solid #1700f4;
+}
+
 .nav_link path{
   fill: #00095b;
   background-color: #fff;
@@ -198,8 +201,13 @@ nav button:hover {
   fill: var(--hover-color)
 }
 
-.nav_link_icon {
-  margin-right: 8px;
+.nav_link_icon,
+.nav_item_text {
+  margin-left: 8px;
+}
+
+.nav_link_list .nav_item:first-child .nav_link_icon {
+  margin-left: 0;
 }
 
 .nav_first_left .nav_item:not(:first-child) {
@@ -228,7 +236,6 @@ nav button {
 
 .ford_logo {
   background: url("images/logos/ford_nav_logo.png") no-repeat -200px 0;
-  height: 35px;
   width: 93px;
   height: 35px;
   background-size: 400px 200px;
@@ -242,13 +249,17 @@ nav button {
   flex: 1;
 }
 
+.vehicle_types > .nav_item .nav_button,
+.additional > .nav_item .nav_button {
+  min-height: 50px;
+}
+
 .vehicle_types {
   flex: 1;
 }
 
 .additional {
   justify-content: flex-end;
-  gap: 10px;
   padding-left: 16px;
 }
 
@@ -264,7 +275,7 @@ nav button {
   background-color: var(--main-color);
   color: #fff;
   text-align: start;
-  width: 380px;
+  width: 320px;
   height: 64px;
   padding-inline: 100px;
   border: 1px solid rgba(255,255,255,0.2);
@@ -281,7 +292,7 @@ nav button {
   width: 18px;
   height: 12px;
   top: 14px;
-  right: -60px;
+  right: -2px;
 }
 
 .dropdown {
@@ -341,6 +352,7 @@ nav button {
   font-family: "ford-antenna-cond-regular", "arial","helvetica","sans-serif";
   text-align: center;
   font-size: 18px;
+  letter-spacing: 1px;
   line-height: 16px;
   padding: 12px 0;
   z-index: 1;
@@ -448,7 +460,7 @@ nav button {
   display: flex;
   flex-direction: column;
   max-width: 48%;
-  margin-inline: 8px;
+  margin: 0 8px 0 12px;
   padding: 0 0 48px 0;
 }
 
@@ -463,7 +475,6 @@ nav button {
 .description_btn_wrapper {
   display: flex;
   justify-content: center;
-  width: 100%;
   margin-top: 32px;
 }
 
@@ -492,6 +503,7 @@ nav button {
 .gallery_section .img_wrapper img {
   height: 100%;
   transition: 0.5s all ease-in-out;
+  cursor: pointer;
 }
 
 .gallery_section .img_wrapper:hover img {
@@ -551,10 +563,6 @@ nav button {
   height: 120px;
 }
 
-.historical_content_wrapper {
-  margin-bottom: 48px;
-}
-
 .historical_content_wrapper h2 {
   color: rgb(253,255,255);
   font-size: 32px;
@@ -568,18 +576,16 @@ nav button {
   font-size: 16px;
   text-align: center;
   line-height: 24px;
-  padding-bottom: 24px;
   margin-inline: auto;
 }
 
 .historical_section .img_container {
-  padding: 0 92px 180px;
+  padding: 32px 92px 180px;
   display: flex;
   justify-content: space-around;
 }
 
 .historical_section .img_wrapper {
-  width: 42.22%;
   margin: 12px;
   flex: 1;
 }
@@ -604,15 +610,23 @@ nav button {
 
 .cars_models_label {
   width: 28%;
-  padding: 10px;
+  padding: 10px 10px 10px 10px;
   background-color: rgb(247,247,247);
   flex: 1;
   text-align: center;
-  border-bottom: 4px solid rgb(247,247,247);
+}
+
+.cars_models_label:first-child {
+  border-bottom: 4px solid rgb(16, 43, 78);
 }
 
 .cars_models_label:hover {
-  border-bottom: 4px solid rgb(16, 43, 78);
+  box-shadow: 0px 4px 0px 0px rgb(16, 43, 78);
+  padding: 10px 10px 6px 10px;
+}
+
+.cars_models_list:hover .cars_models_label {
+  border-bottom:  4px solid rgba(147, 48, 48, 0)
 }
 
 .cars_models_label a {
@@ -789,6 +803,10 @@ nav button {
   margin-bottom: 12px;
 }
 
+.social_headline_wrapper {
+  padding-top: 50px;
+}
+
 .social_content_wrapper {
   width: 100%;
   top: 40px;
@@ -800,7 +818,7 @@ nav button {
   height: 100%;
 }
 
-.social_pages_links {
+.social_networks_container {
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -808,8 +826,7 @@ nav button {
   top: 58%;
 }
 
-.social_desktop_link {
-  display: block;
+.social_network_link {
   width: 190px;
   height: 190px;
   margin: 0;
@@ -833,6 +850,7 @@ nav button {
   justify-content: center;
   align-items: center;
   padding: 30px 20px;
+  cursor: pointer;
 }
 
 .disclosures_btn p {
@@ -1021,13 +1039,6 @@ nav button {
   display: none;
 }
 
-.updates_link_container,
-.comment_link_container {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
 .link_text {
   color: var(--main-color);
   text-decoration: underline;
@@ -1035,6 +1046,8 @@ nav button {
 
 .updates_icon,
 .comment_icon {
+  display: inline-block;
+  vertical-align: middle;
   margin-right: 14px;
 }
 
@@ -1100,91 +1113,280 @@ nav button {
   background-size: 300px 150px;
 }
 
-@media (max-width: 480px) {
-  h2 {
-    font-size: 24px;
+@media (min-width: 1440px) {
+  .headline_content h1 {
+    font-size: 44px;
   }
-
-  .container {
-    padding-inline: 15px;
-  }
-
-  .section_wrapper {
-    margin-inline: 20px;
-  }
-
-  .comparison_content .img_wrapper {
-    padding-inline: 15px;
-    margin-bottom: 32px;
-  }
-
-  .alert_banner p {
-    padding-inline: 15px;
-  }
-
-  .social_pages_links {
-    display: flex;
-    justify-content: space-between;
-    top: 52%;
-  }
-  
-  .social_mobile_link {
-    display: block;
-    width: 64px;
-    height: 78px;
-    margin: 0;
-  }
-
-  .alert_btn, .alert_btn::after {
-    width: 300px;
-  }  
 }
 
-@media (min-width: 480px)  and (max-width: 768px) {
-  h2 {
-    font-size: 30px;
+@media (min-width: 1200px) and (max-width: 1439px) {
+  .nav_first,
+  .nav_second,
+  .search_box,
+  .footer_social_container,
+  .footer_tertiary_section,
+  .footer_nav_bar {
+    padding-inline: 5.3%;
   }
 
-  .container {
-    padding-inline: 25px;
+  .explore_btn {
+    padding-inline: 66px;
   }
 
-  .s_hidden {
+  .footer_brand_logo {
+    right: 5.3%;
+  }
+
+  .nav_button,
+  .nav_item {
+    padding-inline: 6px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .my_account_text {
     display: none;
   }
 
-  .nav_second {
-    padding: 0 20px;
+  .social_links {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 990px) and (max-width: 1439px) {
+  .footer_brand_logo {
+    right: 4%;
+  }
+}
+
+@media (min-width: 990px) and (max-width: 1199px) {
+  .container {
+    padding-inline: 4%;
+  }
+ 
+  .nav_first,
+  .nav_second,
+  .search_box,
+  .footer_social_container,
+  .footer_tertiary_section,
+  .footer_nav_bar {
+    padding-inline: 4%;
   }
 
-  .dropdown_content {
-    left: 0;
+  .nav_button,
+  .nav_item {
+    padding-inline: 6px;
   }
 
-  .comparison_content .img_wrapper {
-    padding-inline: 25px;
-    margin-bottom: 32px;
+  .explore_btn {
+    padding-inline: 42px;
   }
 
-  .social_pages_links {
-    display: flex;
-    justify-content: space-between;
-    top: 57%;
+  .shop_btn {
+    margin-block: 10px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .section_wrapper {
+    margin-inline: 34px;
+  }
+}
+
+@media (min-width: 768px) {
+  .description_img img {
+    width: 100%;
+    height: calc(41vw*0.68);
+  }
+}
+
+@media (max-width: 991px) {
+  .nav_first,
+  .nav_second,
+  .search_box,
+  .footer_social_container,
+  .footer_tertiary_section,
+  .description_columns_container,
+  .historical_section .img_container,
+  .footer_nav_bar,
+  .explore_btn {
+    padding-inline: 26px;
+  }
+
+  .mob_hidden {
+    display: none;
+  }
+
+  .burger_menu_container {
+    display: block;
+  }
+
+  .headline_content h1 {
+    text-align: center;
+  }
+
+  .cars_models_list {
+    margin-inline: 0;
+  }
+
+  .more_info_section .article_container {
+    flex-direction: column;
+  }
+
+ .more_info_btn_container {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
   }
   
-  .social_mobile_link {
+  .article_container > * {
+    width: 100%;
+  }
+
+  .social_section h2,
+  .social_section p {
+    text-align: center;
+  }
+
+  .footer_bottom_links li {
     display: block;
-    width: 108px;
-    height: 108px;
+    margin-bottom: 6px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  h1, 
+  h2 {
+    font-size: 36px;
+  }
+
+  .container {
+    padding-inline: 30px;
+  }
+
+  .headline_content {
+    top: 64px;
+  }  
+
+  .search_box,
+  .footer_social_container,
+  .footer_tertiary_section {
+    padding-inline: 34px;
+  }
+
+  .description_column {
+    margin: 0 8px 0 8px;
+  }
+
+  .gallery_section .img_wrapper {
+    width: 33.333%;
+  }
+
+  .gallery_l_hidden_img {
+    display: block;
+  }
+
+  .gallery_m_hidden_img {
+    display: none;
+  }
+
+  .cars_models_label {
+    width: 40%,
+  }
+
+  .comparison_content h2, 
+  .comparison_content p, 
+  .comparison_content span {
+    max-width: 700px;
+  }
+
+  .mustang_ad_container p {
+    font-size: 22px;
+  }
+  
+  .mustang_ad_container span {
+    font-size: 10px;
+  }
+  
+  .mustang_ad_logo {
+    width: 80px;
+    height: 40px;
+  }
+
+  .updates_btn_wrapper {
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    margin-top: 36px;
+  }
+
+  .social_content_wrapper {
+    top: 64px;
+    bottom: 16px;
+  }
+
+  .social_networks_container {
+    display: flex;
+    justify-content: space-between;
+    top: 53%;
+  }
+  
+  .social_network_link {
+    width: 166px;
+    height: 170px;
     margin: 0;
   }
 
-  .alert_banner p {
-    padding-inline: 25px;
+  .search_nav_container {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 35%;
+  }
+
+  .footer_nav_bar {
+    justify-content: space-between;
+  }
+
+  .footer_nav_bar .footer_columns_container:last-child {
+    flex-direction: column;
+    width: 35%;
+  }
+
+  .support_list .list_header,
+  .experience_list .list_header {
+    padding: 0;
+  }
+
+  .support_list,
+  .experience_list {
+    padding-block: 16px;
+    width: 100%;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .support_list ul,
+  .experience_list ul {
+    display: none;
+  }
+
+  .support_arrow,
+  .experience_arrow {
+    display: block;
+    top: 12%;
+    right: 0;
+  }
+
+  .footer_brand_logo {
+    right: 26px;
+  }
+
+  .social_links {
+    max-width: 35%;
+    flex: 1;
   }
 }
-  
-@media (max-width: 768px) {
+
+@media (max-width: 767px) {
   h1 {
     font-size: 32px;
   }
@@ -1210,10 +1412,13 @@ nav button {
   }  
 
   .dropdown, 
-  .explore_btn,
   .dropdown_content {
     width: 100%; 
     padding: 0;
+  }
+
+  .explore_btn {
+    width: 100%;
   }
 
   .dropdown_arrow_container {
@@ -1223,11 +1428,12 @@ nav button {
   .description_columns_container {
     flex-flow: column;
     margin-block: 0;
+    padding-inline: 20px;
   }
 
   .description_column {
     max-width: 100%;
-    margin-bottom: 48px;
+    margin:0 auto 48px auto;
   }
 
   .gallery_section .img_wrapper {
@@ -1393,274 +1599,80 @@ nav button {
   }
 }
 
-@media (min-width: 768px) and (max-width: 990px) {
-  h1, 
+@media (min-width: 480px)  and (max-width: 767px) {
   h2 {
-    font-size: 36px;
+    font-size: 30px;
   }
 
   .container {
-    padding-inline: 30px;
+    padding-inline: 25px;
   }
 
-  .headline_content {
-    top: 64px;
-  }  
-
-  .search_box,
-  .footer_social_container,
-  .footer_tertiary_section {
-    padding-inline: 34px;
-  }
-
-  .gallery_section .img_wrapper {
-    width: 33.333%;
-  }
-
-  .gallery_l_hidden_img {
-    display: block;
-  }
-
-  .gallery_m_hidden_img {
+  .s_hidden {
     display: none;
   }
 
-  .cars_models_label {
-    width: 40%,
+  .dropdown_content {
+    left: 0;
   }
 
-  .mustang_ad_container p {
-    font-size: 22px;
-  }
-  
-  .mustang_ad_container span {
-    font-size: 10px;
-  }
-  
-  .mustang_ad_logo {
-    width: 80px;
-    height: 40px;
+  .comparison_content .img_wrapper {
+    padding-inline: 25px;
+    margin-bottom: 32px;
   }
 
-  .updates_btn_wrapper {
-    width: 100%;
-    display: inline-flex;
-    justify-content: center;
-    margin-top: 36px;
-  }
-
-  .social_content_wrapper {
-    top: 64px;
-    bottom: 16px;
-  }
-
-  .social_pages_links {
+  .social_network_links {
     display: flex;
     justify-content: space-between;
-    top: 53%;
+    top: 57%;
   }
   
-  .social_mobile_link {
-    display: block;
-    width: 166px;
-    height: 170px;
+  .social_network_link {
+    width: 108px;
+    height: 108px;
     margin: 0;
   }
 
-  .search_nav_container {
-    flex-direction: column;
-    align-items: flex-start;
-    width: 35%;
-  }
-
-  .footer_nav_bar {
-    justify-content: space-between;
-  }
-
-  .footer_nav_bar .footer_columns_container:last-child {
-    flex-direction: column;
-    width: 35%;
-  }
-
-  .support_list .list_header,
-  .experience_list .list_header {
-    padding: 0;
-  }
-
-  .support_list,
-  .experience_list {
-    padding-block: 16px;
-    width: 100%;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-  }
-
-  .support_list ul,
-  .experience_list ul {
-    display: none;
-  }
-
-  .support_arrow,
-  .experience_arrow {
-    display: block;
-    top: 12%;
-    right: 0;
-  }
-
-  .footer_brand_logo {
-    right: 26px;
-  }
-
-  .social_links {
-    max-width: 35%;
-    flex: 1;
+  .alert_banner p {
+    padding-inline: 25px;
   }
 }
 
-@media (max-width: 990px) {
-  .nav_first,
-  .nav_second,
-  .search_box,
-  .explore_btn,
-  .footer_social_container,
-  .footer_tertiary_section,
-  .description_columns_container,
-  .historical_section .img_container,
-  .footer_nav_bar {
-    padding-inline: 26px;
+@media (max-width: 479px) {
+  h2 {
+    font-size: 24px;
   }
 
-  .mob_hidden {
-    display: none;
+  .container {
+    padding-inline: 15px;
   }
 
-  .burger_menu_container {
-    display: block;
+  .section_wrapper {
+    margin-inline: 20px;
   }
 
-  .headline_content h1 {
-    text-align: center;
+  .comparison_content .img_wrapper {
+    padding-inline: 15px;
+    margin-bottom: 32px;
   }
 
-  .cars_models_list {
-    margin-inline: 0;
+  .alert_banner p {
+    padding-inline: 15px;
   }
 
-  .more_info_section .article_container {
-    flex-direction: column;
-  }
-
- .more_info_btn_container {
-  width: 100%;
-  display: inline-flex;
-  justify-content: center;
+  .social_networks_container {
+    display: flex;
+    justify-content: space-between;
+    top: 52%;
   }
   
-  .article_container > * {
-    width: 100%;
+  .social_network_link {
+    width: 64px;
+    height: 78px;
+    margin: 0;
   }
 
-  .social_section h2,
-  .social_section p {
-    text-align: center;
-  }
-
-  .social_desktop_link {
-    display: none; 
-  }
-
-  .footer_bottom_links li {
-    display: block;
-    margin-bottom: 6px;
-  }
-}
-
-@media (min-width: 768px) {
-  .description_img img {
-    width: 100%;
-    height: calc(41vw*0.68);
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1440px) {
-  .section_wrapper {
-    margin-inline: 34px;
-  }
-}
-
-@media (min-width: 990px) and (max-width: 1200px) {
-  .container {
-    padding-inline: 4%;
-  }
-
-  .nav_button,
-  .nav_item {
-    padding-inline: 6px;
-  }
-
-  .explore_btn {
-    padding-inline: 42px;
-  }
-
-  .shop_btn {
-    margin-block: 10px;
-  }
-}
-
-@media (min-width: 990px) and (max-width: 1440px) {
-  .container {
-    padding-inline: 46px;
-  }
-
-  .nav_first,
-  .nav_second,
-  .search_box,
-  .footer_social_container,
-  .footer_tertiary_section,
-  .footer_nav_bar {
-    padding-inline: 4%;
-  }
-
-  .footer_brand_logo {
-    right: 4%;
-  }
-}
-
-@media (min-width: 990px) {
-  .social_mobile_link {
-    display: none;
-  }
-}
-
-@media (min-width: 1200px) and (max-width: 1440px) {
-  .nav_first,
-  .nav_second,
-  .search_box,
-  .footer_social_container,
-  .footer_tertiary_section,
-  .footer_nav_bar {
-    padding-inline: 5.3%;
-  }
-
-  .explore_btn {
-    padding-inline: 66px;
-  }
-
-  .footer_brand_logo {
-    right: 5.3%;
-  }
-
-  .nav_button,
-  .nav_item {
-    padding-inline: 6px;
-  }
-}
-
-@media (max-width: 1200px) {
-  .my_account_text {
-    display: none;
-  }
-
-  .social_links {
-    flex-direction: column;
-  }
-}
+  .alert_btn, .alert_btn::after {
+    width: 300px;
+  }  
+}  
